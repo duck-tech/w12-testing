@@ -28,15 +28,17 @@ describe('Game', () => {
     }
 
   test('test on one spare', () => {
+    // spare 
     game.roll(5);
-    game.roll(5); // spare
+    game.roll(5); 
     game.roll(3);
     rollMany(17, 0);
     expect(game.score).toBe(16);
   });
 
   test('test on one strike', () => {
-  game.roll(10); // strike
+  // strike
+  game.roll(10); 
   game.roll(3);
   game.roll(4);
   rollMany(17, 0);
