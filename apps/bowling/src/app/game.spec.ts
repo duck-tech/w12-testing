@@ -43,7 +43,6 @@ describe('Game', () => {
   expect(game.score).toBe(24);
 });
 
-  // game.spec.ts
   test('perfect game', () => {
     rollMany(12, 10);
     expect(game.score).toBe(300);
