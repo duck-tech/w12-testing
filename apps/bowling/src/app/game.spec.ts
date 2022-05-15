@@ -2,25 +2,28 @@ import { IterableDiffers } from '@angular/core';
 import { Game } from './game';
 
 describe('Game', () => {
+  let game: Game;
+  beforeEach(() => {
+    game = new Game();
+  });
   // it should create an instance
   it('should create an instance', () => {
-    expect(new Game()).toBeTruthy();
+    expect(game).toBeTruthy();
   });
 
-test("gutter game", () => {
-  const game = new Game();
-  for (let i = 0; i < 20; i++) {
-    game.roll(0);
-  }
-  expect(game.score).toBe(0);
-});
+  test("gutter game", () => {
+    rollMany(20,0);
+    expect(game.score).toBe(0);
+  });
 
-test("all one", () => {
-  const game = new Game();
-  for (let i = 0; i < 20; i++) {
-    game.roll(1);
-  }
-  expect(game.score).toBe(20);
-});
-});
+  test("all one", () => {
+    rollMany(20,1);
+    expect(game.score).toBe(20);
+  });
 
+  function rollMany(n: number, pins: number) {
+      for (let i = 0; i < n; i++) {
+        game.roll(pins);
+      }
+    }
+  });
